@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>Wasinthra • Chonnabot Life: ชีวืตในชนบท </title>
+    <title>Wasinthra • Chonnabot Life: ชีวิตในชนบท</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/v1/style.css">
     <style>
@@ -11,11 +11,16 @@
             display: inline-block; 
             background: #000; 
             color: #fff; 
-            padding: 10px 20px; 
-            border-radius: 5px; 
+            padding: 12px 25px; 
+            border-radius: 8px; 
             text-decoration: none;
             font-weight: 600;
             margin-top: 1.5rem;
+            transition: var(--transition);
+        }
+        .roblox-badge:hover {
+            transform: scale(1.05);
+            background: #333;
         }
         .project-meta {
             display: flex;
@@ -23,15 +28,16 @@
             margin-bottom: 2rem;
             color: var(--thai-gold);
             font-size: 0.9rem;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 15px;
         }
         .hero-img-full {
             width: 100%;
-            height: 400px;
+            height: 450px;
             background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200') center/cover;
             border-radius: 20px;
             margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -51,35 +57,52 @@
     </header>
 
     <main class="page-content container">
-        <div class="hero-img-full"></div>
+        <div class="hero-img-full reveal"></div>
 
         <div class="project-detail">
-            <span class="sub-title" style="text-align: left;">Roblox Experience</span>
-            <h1 class="main-title" style="text-align: left;">Chonnabot (ชีวิตในชนบท)</h1>
+            <span class="sub-title reveal delay-1" style="text-align: left;">Roblox Experience</span>
+            <h1 class="main-title reveal delay-1" style="text-align: left;">Chonnabot (ชีวิตในชนบท)</h1>
             
-            <div class="project-meta">
+            <div class="project-meta reveal delay-2">
                 <span>Platform: Roblox</span>
                 <span>Category: Simulation / Educational</span>
                 <span>Status: Active</span>
             </div>
 
-            <div class="container-narrow" style="margin-left: 0; padding-left: 0;">
+            <div class="container-narrow reveal delay-3" style="margin-left: 0; padding-left: 0;">
                 <p class="lead" style="font-size:1.2rem; margin-bottom:1.5rem;">สัมผัสวิถีชีวิตที่เรียบง่ายแต่เปี่ยมด้วยเสน่ห์ของชนบทไทย ผ่านโลกเสมือนจริงบนแพลตฟอร์ม Roblox</p>
                 
                 <p><strong>"ชนบท"</strong> คือโปรเจกต์ที่เราตั้งใจจำลองบรรยากาศบ้านสวนในต่างจังหวัด ทั้งบ้านไม้ใต้ถุนสูง ทุ่งนาสีทอง และวิถีชีวิตการเกษตรแบบดั้งเดิม เพื่อให้ผู้เล่นได้พักผ่อนและเรียนรู้วัฒนธรรมไทยในรูปแบบที่สนุกสนานและเข้าถึงง่าย</p>
 
-                <h3 style="margin-top: 2rem; color: var(--thai-red);">Highlight Features</h3>
-                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
-                    <li>ระบบการทำนาและเกษตรกรรมพื้นบ้าน</li>
-                    <li>สถาปัตยกรรมไทยประยุกต์ที่สมจริง</li>
-                    <li>บรรยากาศ Day/Night Cycle ที่สวยงาม</li>
+                <h3 style="margin-top: 2.5rem; color: var(--thai-red);">Highlight Features</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-main);">
+                    <li style="margin-bottom: 10px;">ระบบการทำนาและเกษตรกรรมพื้นบ้าน</li>
+                    <li style="margin-bottom: 10px;">สถาปัตยกรรมไทยประยุกต์ที่สมจริง</li>
+                    <li style="margin-bottom: 10px;">บรรยากาศ Day/Night Cycle ที่สวยงาม</li>
                 </ul>
 
-                <a href="https://www.roblox.com/games/72679073417743/Chonnabot-Life" class="roblox-badge">PLAY ON ROBLOX</a>
+                <a href="https://www.roblox.com/games/72679073417743/Chonnabot-Life" target="_blank" class="roblox-badge">PLAY ON ROBLOX</a>
             </div>
         </div>
     </main>
 
-    <footer class="main-footer"><p>&copy; 2026 WASINTRA STUDIO</p></footer>
+    <footer class="main-footer">
+        <p>&copy; 2026 WASINTRA STUDIO</p>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
