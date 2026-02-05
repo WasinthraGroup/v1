@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8"><title>Wasinthra • Our Team</title>
+    <meta charset="UTF-8">
+    <title>Wasinthra • Our Team</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/v1/style.css">
 </head>
@@ -21,14 +22,43 @@
     </header>
 
     <main class="page-content container">
-        <h2 class="section-heading">บุคลากร</h2>
+        <h2 class="section-heading reveal">บุคลากร</h2>
         <div class="team-grid">
-            <div class="team-member"><div class="member-avatar"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Wasin"></div><h3>คุณวศิน</h3><p>Founder & Developer</p></div>
-            <div class="team-member"><div class="member-avatar"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Montra"></div><h3>คุณมนทรา</h3><p>Creative Director</p></div>
+            <div class="team-member reveal delay-1">
+                <div class="member-avatar">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Wasin" alt="Wasin">
+                </div>
+                <h3>คุณวศิน</h3>
+                <p>Founder & Developer</p>
+            </div>
+            
+            <div class="team-member reveal delay-2">
+                <div class="member-avatar">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Montra" alt="Montra">
+                </div>
+                <h3>คุณมนทรา</h3>
+                <p>Creative Director</p>
+            </div>
         </div>
     </main>
 
-    <footer class="main-footer"><p>&copy; 2026 WASINTRA STUDIO</p></footer>
+    <footer class="main-footer">
+        <p>&copy; 2026 WASINTRA STUDIO</p>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
