@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8"><title>Wasinthra • Projects</title>
+    <meta charset="UTF-8">
+    <title>Wasinthra • Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/v1/style.css">
 </head>
@@ -21,20 +22,43 @@
     </header>
 
     <main class="page-content container">
-        <h2 class="section-heading">ผลงานของเรา</h2>
+        <h2 class="section-heading reveal">ผลงานของเรา</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-card"><div class="card-image" style="background:url('https://images.unsplash.com/photo-1590059367809-5839447a9925?auto=format&fit=crop&w=600') center/cover;"></div><div class="card-info"><h3>อยุธยา Metaverse</h3><p>พื้นที่เรียนรู้ประวัติศาสตร์เสมือนจริง</p></div></div>
-                <a href="/v1/projects/chonnabot/" class="portfolio-card" style="text-decoration: none; color: inherit; display: block;">
-                    <div class="card-image" style="background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600') center/cover;"></div>
-                    <div class="card-info">
-                        <h3>Chonnabot (ชีวิตในชนบท)</h3>
-                        <p>จำลองวิถีชีวิตเกษตรกรรมไทยบน Roblox</p>
-                    </div>
-                </a>
+            <div class="portfolio-card reveal delay-1">
+                <div class="card-image" style="background:url('https://images.unsplash.com/photo-1590059367809-5839447a9925?auto=format&fit=crop&w=600') center/cover;"></div>
+                <div class="card-info">
+                    <h3>อยุธยา Metaverse</h3>
+                    <p>พื้นที่เรียนรู้ประวัติศาสตร์เสมือนจริง</p>
+                </div>
+            </div>
+
+            <a href="/v1/projects/chonnabot/" class="portfolio-card reveal delay-2" style="text-decoration: none; color: inherit; display: block;">
+                <div class="card-image" style="background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600') center/cover;"></div>
+                <div class="card-info">
+                    <h3>Chonnabot (ชีวิตในชนบท)</h3>
+                    <p>จำลองวิถีชีวิตเกษตรกรรมไทยบน Roblox</p>
+                </div>
+            </a>
         </div>
     </main>
 
-    <footer class="main-footer"><p>&copy; 2026 WASINTRA STUDIO</p></footer>
+    <footer class="main-footer">
+        <p>&copy; 2026 WASINTRA STUDIO</p>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
