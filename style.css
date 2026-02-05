@@ -41,3 +41,56 @@ body { font-family: 'Kanit', 'Sarabun', sans-serif; background-color: var(--soft
 .member-avatar img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 1rem; border: 3px solid var(--thai-gold); }
 
 .main-footer { padding: 3rem 0; text-align: center; border-top: 1px solid #eee; background: white; }
+/* 1. นิยาม Animation พื้นฐาน */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. เตรียม Class สำหรับจุดที่ต้องการให้ผุดขึ้นมา */
+.reveal {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal.active {
+    animation: fadeInUp 0.8s forwards;
+}
+
+/* 3. แอนิเมชั่นสำหรับเมนูด้านบน (ให้หล่นลงมาตอนโหลด) */
+.main-header {
+    animation: fadeInDown 1s ease-out;
+}
+
+/* 4. เพิ่มลูกเล่นให้เมนูโทรศัพท์ (Slide in) */
+.mobile-side-nav {
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1) !important;
+    transform: translateX(100%);
+    right: 0 !important; /* ต้องปรับจากโค้ดเก่า */
+}
+
+.mobile-side-nav.active {
+    transform: translateX(0);
+}
+
+/* 5. หน่วงเวลา (Delay) สำหรับก้อนเนื้อหาที่มาติดกัน */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
